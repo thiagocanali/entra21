@@ -1,4 +1,4 @@
-public class CalculaValores {
+public class CalculaValores{
     
 	public static void main (String[] args) {
 
