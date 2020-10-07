@@ -6,9 +6,8 @@ public class Pet {
     private String tipo;
     private String cor;
     private Dono dono;
-
-    public Pet() {
-    }
+    
+    public Pet(){}
 
     public String getNome() {
         return nome;
