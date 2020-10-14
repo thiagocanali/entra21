@@ -1,0 +1,161 @@
+
+package compromisso;
+
+import java.util.Calendar;
+
+public class Compromisso {
+    private String titulo;
+    private String data;
+    private String tipo;
+    private String local;
+    
+    public Compromisso(){}
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
+    }
+    
+    
+}
+====================
+
+package compromisso;
+
+import java.util.ArrayList;
+
+public class Pessoa {
+    private String nome;
+    private char sexo;
+    private ArrayList<Compromisso> compromissos = new ArrayList<Compromisso>();
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public char getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
+    public ArrayList<Compromisso> getCompromissos() {
+        return compromissos;
+    }
+    
+    public void setCompromisso(Compromisso compromisso) {
+        compromissos.add(compromisso);
+    }
+    
+    public Compromisso getCompromisso(int index) {
+        return compromissos.get(index);
+    }
+    
+}
+===================
+package projetooo;
+
+import compromisso.Compromisso;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
+import compromisso.Pessoa;
+
+public class ProjetoOO {
+
+    
+    public static void main(String[] args) {
+        // TODO code application logic here4
+        Scanner scEntrada = new Scanner(System.in);
+        Pessoa pessoa = new Pessoa();
+        boolean insereCompromisso = true;
+        int qtdCompromissos = 0;
+        String opcao = "";
+        
+        System.out.println("Informe seu nome:");
+        pessoa.setNome(scEntrada.nextLine());
+        
+        System.out.println("Informe seu sexo");
+        pessoa.setSexo(scEntrada.nextLine().toCharArray()[0]);
+        
+        while (insereCompromisso) {            
+            System.out.println(pessoa.getNome() + ", Você possui " + qtdCompromissos + " Compromissos");
+            System.out.println("Gostaria de inserir um Compromisso novo?");
+            System.out.println("1 - Sim   |   0 - Sair | 3 - Ver Compromissos");
+            opcao = scEntrada.nextLine();
+            insereCompromisso = ("1".equals(opcao))? true : false;
+            
+            if(opcao.equals("3")){
+                for (int i = 0; i < qtdCompromissos; i++) {
+                    System.out.println("-----------------------------\n");
+                    System.out.print("COmpromisso: " + pessoa.getCompromisso(i).getTitulo());
+                    System.out.print("  -     Tipo: " + pessoa.getCompromisso(i).getTipo() + "\n");
+                    System.out.println("Local/Data: "+ pessoa.getCompromisso(i).getLocal() + "/ " + pessoa.getCompromisso(i).getData());
+                    System.out.println("-----------------------------");
+                }
+                insereCompromisso = true;
+            } else if(insereCompromisso) {
+                Compromisso compNovo = new Compromisso();
+                
+                System.out.println("Informe um Título");
+                compNovo.setTitulo(scEntrada.nextLine());
+                
+                System.out.println("Informe um Tipo de Compromisso");
+                compNovo.setTipo(scEntrada.nextLine());
+                
+                System.out.println("Informe o Local");
+                compNovo.setLocal(scEntrada.nextLine());
+                
+                System.out.println("Informe a Data");
+                compNovo.setData(scEntrada.nextLine());
+                
+                pessoa.setCompromisso(compNovo);
+                
+                qtdCompromissos = pessoa.getCompromissos().size();
+            }
+        }
+        
+        
+        
+       
+        scEntrada.close();
+    }
+    
+    
+}

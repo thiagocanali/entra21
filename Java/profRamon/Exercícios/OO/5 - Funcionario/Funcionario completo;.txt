@@ -1,0 +1,90 @@
+
+
+package beans;
+
+public class Funcionario {
+    private String nome;
+    private String rg;
+    private String depto;
+    private String dataEntrada;
+    private double salario;
+    
+    public Funcionario(){}
+    
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    
+    public String getNome(){
+        return nome;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public String getDepto() {
+        return depto;
+    }
+
+    public void setDepto(String depto) {
+        this.depto = depto;
+    }
+
+    public String getDataEntrada() {
+        return dataEntrada;
+    }
+
+    public void setDataEntrada(String dataEntrada) {
+        this.dataEntrada = dataEntrada;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+    
+    public void recebeAumento(double valorAumento){
+        salario += valorAumento;
+    }
+    
+    public double calculaGanhoAnual(){
+        return (getSalario() * 12);
+    }
+}
+
+====
+
+
+package projetoheranca2;
+
+import beans.Funcionario;
+
+public class ProjetoHeranca2 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Funcionario funGerente = new Funcionario();
+        
+        funGerente.setNome("João");
+        funGerente.setRg("56773892");
+        funGerente.setDepto("COntas");
+        funGerente.setDataEntrada("25/12/1999");
+        funGerente.setSalario(8000);
+        
+        System.out.println("Salário antigo:" + funGerente.getSalario());
+        System.out.println("Ganho Anual:" + funGerente.calculaGanhoAnual());
+        funGerente.recebeAumento(800);
+        System.out.println("Salário novo:" + funGerente.getSalario());
+        System.out.println("Ganho Anual:" + funGerente.calculaGanhoAnual());
+    }
+    
+}
+

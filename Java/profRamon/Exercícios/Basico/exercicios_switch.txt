@@ -1,0 +1,173 @@
+import java.util.Scanner;
+
+import jdk.management.resource.internal.inst.NetRMHooks;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		Scanner entradaValor = new Scanner(System.in);
+		questao3(entradaValor);
+		
+		entradaValor.close();
+	}
+	
+	public static void questao5(Scanner entradaValor) {
+		
+	}
+
+	public static void questao4(Scanner entradaValor) {
+		
+	}
+	
+	public static void questao3(Scanner entradaValor) {
+		int numeroUm = 0, numeroDois = 0, operacao = 0;
+		Integer resultado = null;
+		
+		System.out.println("Escolhe a operação desejada:");
+		System.out.println("----------------------------");
+		System.out.println("1 - Soma");
+		System.out.println("2 - Subtração");
+		System.out.println("3 - Multiplicação");
+		System.out.println("4 - Divisão");
+		System.out.println("----------------------------");
+		operacao = entradaValor.nextInt();
+		
+		if(operacao>= 1 && operacao <= 4) {
+			System.out.println("Informe o primeiro número:");
+			numeroUm = entradaValor.nextInt();
+			
+			System.out.println("Informe o segundo número:");
+			numeroDois = entradaValor.nextInt();			
+		}
+		
+		switch (operacao) {
+		case 1:
+			resultado = numeroUm + numeroDois;
+			break;
+		case 2:
+			resultado = numeroUm - numeroDois;
+			break;
+		case 3:
+			resultado = numeroUm * numeroDois;
+			break;
+		case 4:
+			resultado = numeroUm / numeroDois;
+			break;
+
+		default:
+			System.out.println("Opção inválida!");
+			break;
+		}
+		
+		if(resultado != null) {
+			System.out.println("Resultado é: " + resultado);			
+		}
+	}
+	
+	public static void questao2(Scanner entradaValor) {
+		String codigoVeiculo;
+		
+		System.out.println("Informe o veículo desejado:");
+		System.out.println("CH - Carros Hatch");
+		System.out.println("CS - Carros Sedan");
+		System.out.println("M - Motocicletas");
+		System.out.println("CNT - Caminhonetes");
+		
+		codigoVeiculo = entradaValor.nextLine();
+		
+		switch (codigoVeiculo.toUpperCase()) {
+		case "CH":
+			System.out.println("Compra efetuada com sucesso!");
+			break;
+		case "CS":
+		case "M":
+		case "CNT":
+			System.out.println("Tem certeza que prefere este modelo? (S/N)");
+			if("S".equalsIgnoreCase(entradaValor.nextLine())){
+				System.out.println("Compra efetuada com sucesso!");
+			} else {
+				System.out.println("Compra não efetuada!");
+			}
+			break;
+
+		default:
+			System.out.println("Não trabalhamos com este tipo de automóvel aqui.");
+			break;
+		}
+		
+	}
+	
+	public static void questao1(Scanner entradaValor) {
+
+		String fruta;
+		
+		System.out.println("Informe a fruta desejada: Maçã, Kiwi, Melancia");
+		fruta = entradaValor.nextLine();
+		
+		switch (fruta.toLowerCase()) {
+		case "maçã":
+			System.out.println("Não vendemos esta fruta aqui");
+			break;
+		case "kiwi":
+			System.out.println("Estamos com escassez de kiwis");
+			break;
+		case "melancia":
+			System.out.println("Aqui está, são R$ 3,00 reais o quilo");
+			break;
+
+		default:
+			System.out.println("Fruta desconhecida!");
+			break;
+		}
+	}
+
+	public static void exercicio1(Scanner entradaDados) {
+		int idade;
+		String termoAceite, entradaValor;
+		boolean podeAcessarIdade, termoAcessoMenorIdade;
+
+		termoAcessoMenorIdade = false;
+		System.out.println("Você só poderá acessar se tiver mais de 15 anos.");
+		System.out.println("Informe sua idade:");
+		entradaValor = entradaDados.nextLine();
+
+		idade = Integer.parseInt(entradaValor); // 0 - 10: Nao pode mesmo ; 11 - 15: Acesso com Aceite
+
+		switch (idade) {
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+		case 10:
+			podeAcessarIdade = false;
+			termoAcessoMenorIdade = false;
+			break;
+		case 11:
+		case 12:
+		case 13:
+		case 14:
+		case 15:
+			podeAcessarIdade = false;
+			System.out.println("Você tem menos de 15 anos. Quer acessar mesmo assim? (S/N)");
+			entradaValor = entradaDados.nextLine();
+			termoAcessoMenorIdade = "S".equalsIgnoreCase(entradaValor) ? true : false;
+			break;
+
+		default:
+			podeAcessarIdade = true;
+			break;
+		}
+
+		if (podeAcessarIdade == true || termoAcessoMenorIdade == true) {
+			System.out.println("Pode acessar!");
+		} else {
+			System.out.println("Não Pode acessar!");
+		}
+	}
+}
