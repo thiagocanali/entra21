@@ -1,0 +1,198 @@
+package interfaces;
+
+
+public interface Funcionario {
+  
+    public void recebeAumento(double aumento);
+    
+    public double calculaGanhoAnual();
+    
+    public String getInfo();
+    
+    public double getGastos();
+   
+   
+}
+
+====
+
+
+package beans;
+
+public abstract class Funcionario {
+    private String nome;
+    private String rg;
+    private String depto;
+    private String dataEntrada;
+    private double salario;
+    
+    public Funcionario(){}
+    
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    
+    public String getNome(){
+        return nome;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public String getDepto() {
+        return depto;
+    }
+
+    public void setDepto(String depto) {
+        this.depto = depto;
+    }
+
+    public String getDataEntrada() {
+        return dataEntrada;
+    }
+
+    public void setDataEntrada(String dataEntrada) {
+        this.dataEntrada = dataEntrada;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+    
+//    public void recebeAumento(double valorAumento){;
+//        salario += valorAumento;
+//    }
+    
+    public double calculaGanhoAnual(){
+        return (getSalario() * 12);
+    }
+    
+    public String getInfo(){
+     String infos = "Nome: " + getNome() + "\n";
+     infos += "Departamento: " + getDepto()+ "\n";
+     infos += "Salário: " + getSalario()+ "\n";
+     return infos;
+    }
+}
+
+==
+package beans;
+
+
+
+public class Professor extends Funcionario implements interfaces.Funcionario{
+    private int horasDeAula;
+
+    public int getHorasDeAula() {
+        return horasDeAula;
+    }
+
+    public void setHorasDeAula(int horasDeAula) {
+        this.horasDeAula = horasDeAula;
+    }
+    
+    
+    public double getGastos() {
+        return getSalario() + (getHorasDeAula() * 10);
+    }
+    
+    public String getInfo(){
+     String infos = "Nome: " + getNome() + "\n";
+     infos += "Departamento: " + getDepto()+ "\n";
+     infos += "Salário: " + getSalario()+ "\n";
+     
+     infos += "Horas de Aula: " + getHorasDeAula() + "\n";
+     return infos;
+    }
+    
+    public void recebeAumento(double aumento) {
+        setSalario(aumento + 400);
+    }
+
+}
+
+==
+package beans;
+
+public class Gerente extends Funcionario implements interfaces.Funcionario{
+    
+    public void recebeAumento(double salario){
+        double percentAumentoPlus = getSalario() * 0.15;
+        setSalario(salario + percentAumentoPlus);
+    }
+    
+    public double getGastos() {
+        return getSalario();
+    }
+    
+    public String getInfo(){
+     String infos = "Nome: " + getNome() + "\n";
+     infos += "Departamento: " + getDepto()+ "\n";
+     infos += "Salário: " + getSalario()+ "\n";
+     
+     return infos;
+    }
+}
+
+==
+
+package projetoheranca2;
+
+import beans.Atendente;
+import interfaces.Funcionario;
+import beans.Gerente;
+import beans.Professor;
+import java.util.Scanner;
+
+public class ProjetoHeranca2 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner scEntrada = new Scanner(System.in);
+        
+        
+        System.out.println("Qual o seu cargo?");
+        
+        switch(scEntrada.nextLine().toUpperCase()){
+            case "GER":
+               Gerente gerente = new Gerente();
+                gerente.setDepto("ACESSO");
+                gerente.setSalario(3000);
+                gerente.setNome("GErente");
+                mostraDados(gerente);
+                break;
+                
+            case "ATD":
+                Atendente atendente = new Atendente();
+                break;
+                
+            case "PROF":
+                Professor prof = new Professor();
+                prof.setNome("Prof");
+                prof.setHorasDeAula(20);
+                prof.setDepto("ACESSO");
+                prof.setSalario(3000);
+                mostraDados(prof);
+                break;
+                
+            default:
+                break;
+        }
+        
+    }
+    
+    public static void mostraDados(Funcionario func) {
+        System.out.println(func.getInfo());
+    }
+    
+}
+
