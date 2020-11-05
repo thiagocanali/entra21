@@ -1,83 +1,218 @@
 @charset "UTF-8";
-
 * {
-    margin:0;
+    margin: 0;
     padding: 0;
-    
 }
 
+body {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: lightcyan;
+}
+
+
 /* Header */
-header{
+
+header {
     position: relative;
     top: 0;
     height: 80px;
     width: 100vw;
     margin-bottom: 1em;
     background-color: rgb(0, 255, 200);
-
 }
 
 header h1 {
-
     position: absolute;
     top: 20px;
-    left: lem;  
-
+    left: lem;
 }
 
 header nav {
     position: relative;
     width: 50%;
     float: right;
-
 }
 
-header nav ul{
+header nav ul {
     list-style: none;
 }
 
-header nav ul li{
+header nav ul li {
     display: inline-block;
     /*float: left;*/
     height: 100px;
     width: 50px;
     margin: 5px 10px;
     padding: 2px 5px;
-
 }
 
-header nav ul li a{
-
-    height: 100%;
-    width: 100%;
+header nav ul li a {
+    height: 100px;
+    width: 50px;
     line-height: 60px;
     text-decoration: none;
     font-weight: 800;
     font-size: 20px;
     transition: all 0.5;
-
 }
 
-header nav ul li a:hover{
-
+header nav ul li a:hover {
     background-color: #0000;
-    color: #ffff;
-    font-size: 24px;
-
+    color: rgb(255, 255, 255);
 }
 
-nav:after{
+nav:after {
     clear: both;
     content: "";
     display: block;
-
 }
 
-hr{
+hr {
     position: absolute;
     bottom: 0;
     width: 100%;
-    
 }
 
 
+/* Main */
+
+main {
+    position: relative;
+    width: 80vw;
+    min-height: 200px;
+    margin: 1em auto;
+    padding: 0.5em;
+    border: 1px solid rgba(158, 158, 158, 0.8);
+    border-radius: 16px;
+    background-color: rgb(218, 218, 218);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.titulo-main {
+    display: block;
+    width: 100%;
+    padding: 1em;
+    border-bottom: 1px solid #000;
+}
+
+
+/* Section */
+
+#list-container {
+    display: block;
+    width: 80vw;
+    margin: 5em auto;
+}
+
+section.box-list {
+    display: block;
+    width: 30vw;
+    margin: 0.5em auto 0.5em 5.5em;
+    float: left;
+    min-height: 100px;
+    border: 1px solid rgba(158, 158, 158, 0.8);
+    border-radius: 16px;
+    background-color: rgb(197, 197, 197);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#list-container:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+
+/* Footer */
+
+footer {
+    display: block;
+    width: 100vw;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    background-color: aquamarine;
+    border-top: 2px solid rgb(0, 179, 170);
+    padding: 0.5em 2em;
+    text-align: center;
+    margin-top: 8em;
+}
+
+
+/* Tables */
+
+.table-fluid {
+    min-width: 500px;
+    padding: 0.5em;
+    margin: 1em auto;
+}
+
+.table-fluid.table-border td {
+    border-bottom: 1px solid rgba(158, 158, 158, 0.8);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.table-fluid.table-hover tr:hover {
+    background-color: rgb(0, 184, 129);
+}
+
+
+/* Forms */
+
+form {
+    display: block;
+    margin: 5px auto;
+    width: 50%;
+    color: rgb(0, 0, 255);
+    background-color: rgb(230, 230, 230);
+}
+
+form ul {
+    list-style: none;
+    padding: 1em;
+    text-align: center;
+}
+
+form ul li {
+    margin: 1em;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select,
+form textarea {
+    min-height: 1.5em;
+    border-radius: 3px;
+    outline-color: rgb(0, 0, 255);
+    padding: 5px;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form select:focus,
+form textarea:focus {
+    background-color: mintcream;
+    color: navy;
+}
+
+.btn {
+    min-height: 1em;
+    padding: 0.5em;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn.success {
+    background-color: rgb(0, 255, 0);
+    color: rgb(255, 255, 255);
+}
+
+.btn.reset {
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+}

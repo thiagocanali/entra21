@@ -6,11 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primeira página</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body{
-            background-color: hsl(0, 0%, 87%);
-        }
-    </style>
 </head>
 
 <body>
@@ -34,36 +29,46 @@
         <hr>
     </header>
     <main>
-        <div>
+        <div class="titulo-main">
             <h2>Meu texto</h2>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae exercitationem numquam quaerat corrupti
-            ratione soluta ullam quasi sunt modi. Ad libero laborum, consequuntur voluptatum quasi atque numquam
-            aliquam. Blanditiis, itaque!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae exercitationem numquam quaerat corrupti
-            ratione soluta ullam quasi sunt modi. Ad libero laborum, consequuntur voluptatum quasi atque numquam
-            aliquam. Blanditiis, itaque!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae exercitationem numquam quaerat corrupti
-            ratione soluta ullam quasi sunt modi. Ad libero laborum, consequuntur voluptatum quasi atque numquam
-            aliquam. Blanditiis, itaque!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae exercitationem numquam quaerat corrupti ratione soluta ullam quasi sunt modi. Ad libero laborum, consequuntur voluptatum quasi atque numquam aliquam. Blanditiis, itaque!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae exercitationem numquam quaerat corrupti ratione soluta ullam quasi sunt modi. Ad libero laborum, consequuntur voluptatum quasi atque numquam aliquam. Blanditiis, itaque!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae exercitationem numquam quaerat corrupti ratione soluta ullam quasi sunt modi. Ad libero laborum, consequuntur voluptatum quasi atque numquam aliquam. Blanditiis, itaque!</p>
+
+        <div id="dados"></div>
     </main>
-    <section>
-        <h3>Minha lista 1</h3>
-        <ol>
-            <li>Item <span style="color:blue;">ordenado</span>1</li>
-            <li>Item ordenado1</li>
-            <li>Item ordenado1</li>
-        </ol>
-        <h3>Minha lista 2</h3>
-        <ul>
-            <li>Item ordenado1</li>
-            <li>Item ordenado1</li>
-            <li>Item ordenado1</li>
-        </ul>
-    </section>
+    <div id="list-container">
+        <section class="box-list">
+            <h3>Minha lista 1</h3>
+            <ol>
+                <li>Item <span style="color:blue;">ordenado</span>1</li>
+                <li>Item ordenado1</li>
+                <li>Item ordenado1</li>
+            </ol>
+        </section>
+        <section class="box-list">
+            <h3>Minha lista 2</h3>
+            <ul>
+                <li>Item ordenado1</li>
+                <li>Item ordenado1</li>
+                <li>Item ordenado1</li>
+            </ul>
+        </section>
+    </div>
     <footer>
         <p>Desenvolvido por ThiagoC Schwartz &copy;</p>
     </footer>
+
+    <!-- Javascript -->
+    <script type="text/javascript">
+        // alert("JS carregado");
+        var nome = "<p>Thiago</p>";
+
+        console.log("Nome: " + nome);
+
+        document.getElementById("dados").innerHTML = nome;
+    </script>
 </body>
 
 </html>

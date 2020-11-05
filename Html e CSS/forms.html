@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulários</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <h1>
@@ -30,20 +32,20 @@
         <form action="forms.html">
             <ul>
                 <li>
-                    <label for="nome">Nome</label>
+                    <label for="nome">Nome:</label>
                     <input type="text" name="nome" id="nome" placeholder="Informe seu nome...">
                 </li>
                 <li>
-                    <label for="idade">Idade</label>
-                    <input type="text" name="idade" id="idade" placeholder="20">
+                    <label for="idade">Idade:</label>
+                    <input type="number" name="idade" id="idade" placeholder="20">
                 </li>
                 <li>
-                    <label for="sexo">Sexo</label>
+                    <label for="sexo">Sexo:</label>
                     <input type="radio" name="sexo" value="M"> Masculino
                     <input type="radio" name="sexo" value="F"> Feminino
                 </li>
                 <li>
-                    <label for="cidade">Cidade</label>
+                    <label for="cidade">Cidade:</label>
                     <select name="cidade" id="cidade">
                         <option value="">Selecione...</option>
                         <option value="Blumenau">Blumenau</option>
@@ -56,8 +58,8 @@
 Reclamação:</textarea>
                 </li>
                 <li>
-                    <input type="button" value="Enviar">
-                    <input type="reset" value="Limpar">
+                    <input class="btn success" type="button" value="Enviar">
+                    <input class="btn reset" type="reset" value="Limpar">
                 </li>
             </ul>
         </form>
@@ -66,4 +68,5 @@ Reclamação:</textarea>
         <p>Desenvolvido por ThiagoC Schwartz &copy;</p>
     </footer>
 </body>
+
 </html>
