@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+/* Main */
+
+main {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+main form {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Section */
+
+#conteudo-tabela {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+
+/* footer */
+
+footer {
+    position: relative;
+    margin-top: 1em;
+    padding: 0.5em;
+    /* top: 80vh; */
+    border-top: 4px solid #0026ff;
+}
+
+.rede-social {
+    list-style: none;
+}
+
+.rede-social li {
+    margin: 0.3em;
+}
+
+.rede-social li a {
+    text-decoration: none;
+}
+
+#footer-rights {
+    margin-top: .5em;
+    padding: 0.3em;
+    border-top: 1px solid rgb(187, 187, 187);
+}
