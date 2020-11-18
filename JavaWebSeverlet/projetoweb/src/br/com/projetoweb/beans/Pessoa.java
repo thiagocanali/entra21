@@ -8,12 +8,11 @@ public class Pessoa implements Serializable {
 	private String nome;
 	private String dtNascimento;
 	private String cpf;
-	private String sexo;
-
-	public Pessoa() {
-	}
-
-	public Pessoa(long id, String nome, String dtNascimento, String cpf, String sexo) {
+	private char sexo;
+	
+	public Pessoa() {}
+	
+	public Pessoa(long id, String nome, String dtNascimento, char sexo) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -21,36 +20,56 @@ public class Pessoa implements Serializable {
 		this.sexo = sexo;
 	}
 
+	/**
+	 * @return the id
+	 */
 	public long getId() {
 		return id;
 	}
-
+	/**
+	 * @param id the id to set
+	 */
 	public void setId(long id) {
 		this.id = id;
 	}
-
+	/**
+	 * @return the nome
+	 */
 	public String getNome() {
 		return nome;
 	}
-
+	/**
+	 * @param nome the nome to set
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	/**
+	 * @return the dtNascimento
+	 */
 	public String getDtNascimento() {
 		return dtNascimento;
 	}
-
+	/**
+	 * @param dtNascimento the dtNascimento to set
+	 */
 	public void setDtNascimento(String dtNascimento) {
 		this.dtNascimento = dtNascimento;
 	}
 
-	public String getSexo() {
+	/**
+	 * @return the sexo
+	 */
+	public char getSexo() {
 		return sexo;
 	}
-
-	public void setSexo(String sexo) {
+	/**
+	 * @param sexo the sexo to set
+	 */
+	public void setSexo(char sexo) {
 		this.sexo = sexo;
 	}
-
+	
+	
+	
 }

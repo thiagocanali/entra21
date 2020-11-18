@@ -7,18 +7,13 @@ public class ConnectionFactory {
 	public static Connection getConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			
-			String url = "jdbc:mysql://localhost:3306/agenda?useTimezone=true&serverTimezone=UTC";
-			String user = "root";
-			String pwd = "root";
-			
-			Connection cnct = DriverManager.getConnection(url, user, pwd);
-			
-			return cnct;
-		} catch(SQLException e) {
+			String url = "jdbc:mysql://localhost:3306/agenda?useTimezone=true&serverTimezone=UTC&useSSL=false";
+			Connection cnn = DriverManager.getConnection(url,"root","root");
+			return cnn;
+		} catch (SQLException e) {
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+		} catch (ClassNotFoundException cnf) {
+			cnf.printStackTrace();
 		}
 		return null;
 	}
