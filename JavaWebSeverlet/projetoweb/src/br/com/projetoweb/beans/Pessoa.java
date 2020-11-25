@@ -12,11 +12,11 @@ public class Pessoa implements Serializable {
 	
 	public Pessoa() {}
 	
-	public Pessoa(long id, String nome, String dtNascimento, char sexo) {
-		super();
+	public Pessoa(long id, String nome, String dtNascimento, String cpf, char sexo) {
 		this.id = id;
 		this.nome = nome;
 		this.dtNascimento = dtNascimento;
+		this.cpf = cpf;
 		this.sexo = sexo;
 	}
 
@@ -56,7 +56,18 @@ public class Pessoa implements Serializable {
 	public void setDtNascimento(String dtNascimento) {
 		this.dtNascimento = dtNascimento;
 	}
-
+	/**
+	 * @return the cpf
+	 */
+	public String getCpf() {
+		return cpf;
+	}
+	/**
+	 * @param cpf the cpf to set
+	 */
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 	/**
 	 * @return the sexo
 	 */

@@ -8,17 +8,19 @@ import br.com.projetoweb.cnn.ConnectionFactory;
 
 public class PessoaDAO {
 
-	public static ArrayList<Pessoa> listaPessoas(){
+	public static ArrayList<Pessoa> listaPessoas() {
 		Connection cnn = ConnectionFactory.getConnection();
-		String query = "SELECT * FROM PESSOA";
+		String query = "select * from pessoa";
 		ArrayList<Pessoa> arPessoas = new ArrayList();
-		
+
 		try {
 			PreparedStatement pStm = cnn.prepareStatement(query);
 			ResultSet rsPessoas = pStm.executeQuery();
-			
-			while(rsPessoas.next()) {
-				Pessoa pes = new Pessoa(rsPessoas.getLong("id"), rsPessoas.getString("nome"), rsPessoas.getString("dt_nascimento"), rsPessoas.getString("sexo").charAt(0));
+
+			while (rsPessoas.next()) {
+				Pessoa pes = new Pessoa(rsPessoas.getLong("id"), rsPessoas.getString("nome"),
+						rsPessoas.getString("dt_nascimento"), rsPessoas.getString("cpf"),
+						rsPessoas.getString("sexo").charAt(0));
 				arPessoas.add(pes);
 			}
 			cnn.close();
@@ -30,29 +32,12 @@ public class PessoaDAO {
 		return null;
 	}
 	
-	public static int cadastraPessoa(Pessoa pessoaSubmit) {
-		String query = "INSERT INTO pessoa(nome, dt_nascimento, sexo) values (?, ?, ?)";
-		Connection cnn = ConnectionFactory.getConnection();
-		String sexo = Character.toString(pessoaSubmit.getSexo());
-		int linhasAfetadas = 0;
+	public static int cadastrarPessoa(Pessoa objPessoa) {
 		
-		
-		try {
-			PreparedStatement pStmt = cnn.prepareStatement(query);
-			pStmt.setString(1, pessoaSubmit.getNome());
-			pStmt.setString(1, pessoaSubmit.getDtNascimento());
-			pStmt.setString(1, sexo);
-			linhasAfetadas = pStmt.executeUpdate();
-			cnn.close();
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		return linhasAfetadas;
+		return 1;
 	}
 
 	public static Pessoa getPessoaById(int id) {
-		// TODO Auto-generated method stub
 		Pessoa pessoaRetorno = new Pessoa();
 		String query = "SELECT * FROM pessoa WHERE id = ?";
 		Connection cnn = ConnectionFactory.getConnection();
@@ -60,8 +45,9 @@ public class PessoaDAO {
 		try {
 			PreparedStatement pStmt = cnn.prepareStatement(query);
 			pStmt.setInt(1, id);
+			
 			ResultSet rsPessoa = pStmt.executeQuery();
-			while (rsPessoa.next()) {
+			while(rsPessoa.next()) {
 				pessoaRetorno.setId(id);
 				pessoaRetorno.setNome(rsPessoa.getString("nome"));
 				pessoaRetorno.setDtNascimento(rsPessoa.getString("dt_nascimento"));
@@ -70,10 +56,61 @@ public class PessoaDAO {
 			rsPessoa.close();
 			cnn.close();
 		} catch (SQLException e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
+		return pessoaRetorno;
+	}
+
+	public static int cadastraPessoa(Pessoa pessoaSubmit) {
+		String query = "INSERT INTO pessoa(nome, dt_nascimento, sexo) values (?, ?, ?)";
+		Connection cnn = ConnectionFactory.getConnection();
+		String sexo = Character.toString(pessoaSubmit.getSexo());
+		int linhasAfetadas = 0;
 		
-		return null;
+		try {
+			PreparedStatement pStmt = cnn.prepareStatement(query);
+			pStmt.setString(1, pessoaSubmit.getNome());
+			pStmt.setString(2, pessoaSubmit.getDtNascimento());
+			pStmt.setString(3, sexo);
+			linhasAfetadas = pStmt.executeUpdate();
+			cnn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return linhasAfetadas;
+	}
+
+	public static int updatePessoa(Pessoa pessoaSubmit) {
+		String query = "UPDATE pessoa SET nome = ?, dt_nascimento = ? WHERE id= ?";
+		Connection cnn = ConnectionFactory.getConnection();
+		int linhasAfetadas = 0;
+		
+		try {
+			PreparedStatement pStmt = cnn.prepareStatement(query);
+			pStmt.setString(1, pessoaSubmit.getNome());
+			pStmt.setString(2, pessoaSubmit.getDtNascimento());
+			pStmt.setLong(3, pessoaSubmit.getId());
+			linhasAfetadas = pStmt.executeUpdate();
+			cnn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return linhasAfetadas;
+	}
+
+	public static int delPessoa(int id) {
+		String query = "DELETE FROM pessoa WHERE id= ?";
+		Connection cnn = ConnectionFactory.getConnection();
+		int linhasAfetadas = 0;
+		
+		try {
+			PreparedStatement pStmt = cnn.prepareStatement(query);
+			pStmt.setInt(1, id);
+			linhasAfetadas = pStmt.executeUpdate();
+			cnn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return linhasAfetadas;
 	}
 }

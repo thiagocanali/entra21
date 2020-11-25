@@ -9,18 +9,24 @@ import br.com.projetoweb.dao.PessoaDAO;
 public class PessoaModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	public static ArrayList<Pessoa> listaPessoas() {
+	public ArrayList<Pessoa> listaPessoas() {
 			return PessoaDAO.listaPessoas();
 	}
 
 	public Pessoa getPessoaById(int id) {
-		// TODO Auto-generated method stub
 		return PessoaDAO.getPessoaById(id);
 	}
 
 	public static int cadastraPessoa(Pessoa pessoaSubmit) {
 		// TODO Auto-generated method stub
-		return PessoaDAO.cadastraPessoa(objPessoa);
+		return PessoaDAO.cadastraPessoa(pessoaSubmit);
+	}
+
+	public static int updatePessoa(Pessoa pessoaSubmit) {
+		return PessoaDAO.updatePessoa(pessoaSubmit);
+	}
+
+	public static int delPessoa(int id) {
+		return PessoaDAO.delPessoa(id);
 	}
 }
- 
