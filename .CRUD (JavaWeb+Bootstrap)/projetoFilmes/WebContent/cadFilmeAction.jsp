@@ -5,22 +5,22 @@
 
 <main>
 	<fieldset>
-		<legend>Cadastro</legend>
+		<legend>Cadastrando filme:</legend>
 		<div>
 			<form action="filme" method="post">
 				<ul style="list-style: none;">
 					<li><label>Titulo:</label> <input class="form-control col-5"
-						type="text" name="titulo" placeholder="Informe um titulo...">
+						type="text" name="titulo" placeholder="Informe o titulo do filme...">
 						<span id="tituloValidate"></span></li>
 					<li><label>Classificacao:</label> <input
 						class="form-control col-5" type="number" name="classificacao"
-						placeholder="18 anos"> <span id="classificacaoValidate"></span>
+						placeholder="0 - 18 anos"> <span id="classificacaoValidate"></span>
 					</li>
 					<li><label>Genero:</label> <input class="form-control col-5"
-						type="text" name="genero" placeholder="comedia"> 
+						type="text" name="genero" placeholder="Ex.: Ação, Aventura, Comédia, Romance..."> 
 						<span id="generoValidate"></span></li>
 					<li>
-					<input class="btn btn-success" type="submit"
+					<input class="btn btn-dark" type="submit"
 						value="Cadastrar">
 					</li>
 				</ul>

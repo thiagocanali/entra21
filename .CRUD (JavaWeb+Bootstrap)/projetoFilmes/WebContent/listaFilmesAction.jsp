@@ -6,7 +6,7 @@
 <main>
 <div class="container">
 	<div class="row" id="cad-filme-container">
-		<a class="btn btn-success" href="filme?action=cadFilme"> <i class="fas fa-plus"></i> Cadastrar Filmes</a>
+		<a class="btn btn-dark" href="filme?action=cadFilme"> <i class="fas fa-plus"></i> Cadastrar Filme</a>
 	</div>
 </div>
 <div class="row">
@@ -14,9 +14,9 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<td>Titulo</td>
-				<td>Classificacao</td>
-				<td>Genero</td>
+				<td>Título</td>
+				<td>Classificação</td>
+				<td>Gênero</td>
 			</tr>
 		</thead>
 		<tbody>

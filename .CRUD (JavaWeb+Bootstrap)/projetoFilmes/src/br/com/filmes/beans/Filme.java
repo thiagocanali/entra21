@@ -7,18 +7,15 @@ public class Filme {
 	private int classificacao;
 	private String genero;
 	
-	public Filme() {
+	public Filme() {}
 	
-	}
-	
-	public Filme(long id, String titulo, int classificacao, String genero) {
+	public Filme (long id, String titulo, int classificacao, String genero) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.classificacao = classificacao;
 		this.genero = genero;
 	}
-
 	public long getId() {
 		return id;
 	}
@@ -43,7 +40,4 @@ public class Filme {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-	
-	
-	
 }

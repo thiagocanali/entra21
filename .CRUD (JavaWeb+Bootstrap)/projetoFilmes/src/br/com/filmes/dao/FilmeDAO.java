@@ -15,11 +15,9 @@ public class FilmeDAO {
 		Connection cnn = ConnectionFactory.GetConnection();
 		String query = "select * from filme";
 		ArrayList<Filme> arFilmes = new ArrayList();
-
 		try {
 			PreparedStatement pStm = cnn.prepareStatement(query);
 			ResultSet rsFilmes = pStm.executeQuery();
-
 			while (rsFilmes.next()) {
 				Filme filme = new Filme(rsFilmes.getLong("id"), rsFilmes.getString("titulo"),
 						rsFilmes.getInt("classificacao"), rsFilmes.getString("genero"));
@@ -33,12 +31,11 @@ public class FilmeDAO {
 		}
 		return null;
 	}
-
+	
 	public static Filme getFilmeById(int id) {
 		Filme filmeRetorno = new Filme();
 		String query = "SELECT * FROM filme WHERE id = ?";
 		Connection cnn = ConnectionFactory.GetConnection();
-
 		try {
 			PreparedStatement pStmt = cnn.prepareStatement(query);
 			pStmt.setInt(1, id);
@@ -53,7 +50,6 @@ public class FilmeDAO {
 			rsFilmes.close();
 			cnn.close();
 		} catch (SQLException e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return filmeRetorno;
@@ -63,7 +59,6 @@ public class FilmeDAO {
 		String query = "INSERT INTO filme (titulo, classificacao, genero) VALUES (?, ?, ?)";
 		Connection cnn = ConnectionFactory.GetConnection();
 		int linhasAfetadas = 0;
-
 		try {
 			PreparedStatement pStmt = cnn.prepareStatement(query);
 			pStmt.setString(1, filmeSubmit.getTitulo());
@@ -72,26 +67,24 @@ public class FilmeDAO {
 			linhasAfetadas = pStmt.executeUpdate();
 			cnn.close();
 		} catch (SQLException e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return linhasAfetadas;
 	}
 	
 	public static int updateFilme(Filme filmeSubmit) {
-		String query = "UPDATE filme SET titulo = ?, classificacao = ? WHERE id = ?";
+		String query = "UPDATE filme SET titulo = ?, classificacao = ?, genero = ? WHERE id = ?";
 		Connection cnn = ConnectionFactory.GetConnection();
 		int linhasAfetadas = 0;
-		
 		try {
 			PreparedStatement pStmt = cnn.prepareStatement(query);
 			pStmt.setString(1, filmeSubmit.getTitulo());
 			pStmt.setInt(2, filmeSubmit.getClassificacao());
-			pStmt.setLong(3, filmeSubmit.getId());
+			pStmt.setString(3, filmeSubmit.getGenero());
+			pStmt.setLong(4, filmeSubmit.getId());
 			linhasAfetadas = pStmt.executeUpdate();
 			cnn.close();
 		} catch (SQLException e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return linhasAfetadas;
@@ -101,17 +94,14 @@ public class FilmeDAO {
 		String query = "DELETE FROM filme WHERE id = ?";
 		Connection cnn = ConnectionFactory.GetConnection();
 		int linhasAfetadas = 0;
-
 		try {
 			PreparedStatement pStmt = cnn.prepareStatement(query);
 			pStmt.setInt(1, id);
 			linhasAfetadas = pStmt.executeUpdate();
 			cnn.close();
 		} catch (SQLException e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return linhasAfetadas;
 	}
-
 }

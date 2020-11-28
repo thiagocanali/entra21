@@ -8,7 +8,7 @@
 <script src="https://kit.fontawesome.com/939df34509.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <a class="navbar-brand" href="index.jsp"> <i class="fas fa-book"></i> Filme</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -21,10 +21,10 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Lista
+          Opções
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="filme?action=listaFilmes">Filmes</a>
+          <a class="dropdown-item" href="filme?action=listaFilmes">Lista de Filmes</a>
           <div class="dropdown-divider"></div>
         </div>
       </li>

@@ -5,28 +5,28 @@
 		
 	<main>
 		<fieldset>
-			<legend>Editando Cadastro do filme: <c:out value="${objFilme.titulo }" /> </legend>
+			<legend>Editando filme: <c:out value="${objFilme.titulo }" /> </legend>
 			<div>
 				<form action="filme" method="post">
 					<ul style="list-style: none;">
 						<li>
-							<label>Titulo:</label>
+							<label>Título:</label>
 							<input class="form-control col-5" type="text" name="titulo" value="${objFilme.titulo }">
 							<span id="tituloValidate"></span>
 						</li>
 						<li>
-							<label>Classificacao:</label>
+							<label>Classificação:</label>
 							<input class="form-control col-5" type="number" name="classificacao" value="${objFilme.classificacao}">
 							<span id="classificacaoValidate"></span>
 						</li>
 						<li>
-							<label>Genero:</label>
+							<label>Gênero:</label>
 							<input class="form-control col-5" type="text" name="genero" value="${objFilme.genero}">
 							<span id="sexoValidate"></span>
 						</li>
 						<li>
 							<input type="hidden" name="id" value="${objFilme.id }">
-							<input class="btn btn-success" type="submit" value="Atualizar">
+							<input class="btn btn-dark" type="submit" value="Editar">
 						</li>
 					</ul>
 				</form>
