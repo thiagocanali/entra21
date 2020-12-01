@@ -1,0 +1,31 @@
+	public static void exercicio6dia2409() {
+
+		/*
+		 TENDO COMO ENTRADA A ALTURA E O SEXO (1:FEMININO 2:MASCULINO) DE UMA PESSOA, CONSTRUA UM PROGRAMA QUE CALCULE E IMPRIMA SEU PESO IDEAL,
+		 UTILIZANDO AS SEGUINTES FÓRMULAS:
+		 - PARA HOMENS: (72.7*ALTURA) - 58
+		 - PARA MULHERES: (62.1*ALTURA) - 44.7
+		 */
+
+		Scanner leia = new Scanner(System.in);
+		
+		double formulaHomens = 72.7;
+		double formulaMulheres = 62.1;
+
+		System.out.println("digite o sexo: (M ou F)");
+		String sexo = leia.nextLine();
+		
+		System.out.println("digite a altura: ");
+		double altura = leia.nextInt();
+
+		if (sexo.equalsIgnoreCase("m")) {
+			formulaHomens = formulaHomens*altura;
+			System.out.println("O seu resultado é: " +formulaHomens+" e o peso ideal é: 58");
+		} else if (sexo.equalsIgnoreCase("f")) {
+			formulaMulheres = formulaMulheres*altura;
+			System.out.println("O seu resultado é: " +formulaMulheres+" e o peso ideal é: 44.7");
+		} else {
+			System.out.println("valor informado invalido");
+		}
+		leia.close();
+	}
