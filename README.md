@@ -1,2 +1,2 @@
 # e21-logica-java
-exercicios aplicando basico de logica, java e git
+exercicios aplicando basico de git, logica, java, html, css, mysql e frameworks...
