@@ -1,0 +1,27 @@
+
+//texto menu
+.menufont {
+ 
+        ul{
+            text-align: center;
+            position: absolute;
+            top: 12em;
+        
+        }
+        h2{  
+            color: $secundaria;
+            font-size: 20px;
+            padding: 40px;
+        
+        }
+    }    
+.menufont a:hover{
+    color: initial;
+    text-decoration: none;
+}
+
+//fundo menu
+
+.backmenu{
+    padding: 6em;
+}
