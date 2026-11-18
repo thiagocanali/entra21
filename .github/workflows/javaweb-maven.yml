@@ -1,0 +1,36 @@
+name: JavaWeb Maven validation
+
+on:
+  pull_request:
+    paths:
+      - 'CRUD (JavaWeb+Bootstrap)/**'
+      - '.github/workflows/javaweb-maven.yml'
+  push:
+    branches: [master]
+    paths:
+      - 'CRUD (JavaWeb+Bootstrap)/**'
+      - '.github/workflows/javaweb-maven.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [socialbooks, meudiario, projetoweb, SeriesVotos, projetoFilmes]
+    defaults:
+      run:
+        working-directory: ${{ format('CRUD (JavaWeb+Bootstrap)/{0}', matrix.project) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '8'
+          cache: maven
+          cache-dependency-path: 'CRUD (JavaWeb+Bootstrap)/${{ matrix.project }}/pom.xml'
+      - name: Compile and package
+        run: mvn --batch-mode --no-transfer-progress -DskipTests package
