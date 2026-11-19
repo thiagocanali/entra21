@@ -1,6 +1,6 @@
 name: JavaWeb Maven validation
 
-on:
+'on':
   pull_request:
     paths:
       - 'CRUD (JavaWeb+Bootstrap)/**'
